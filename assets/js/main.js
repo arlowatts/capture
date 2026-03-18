@@ -34,13 +34,14 @@ for (let i = 0; i < height; i++) {
         tile.style.width = `${100 / width}%`;
         tile.style.height = `${100 / height}%`;
 
-        let image = document.createElement("img");
-        image.src = "";
+        let img = document.createElement("img");
+        img.style.display = "none";
+        img.src = "";
 
-        tile.addEventListener("click", () => highlightMoves(i, j));
+        tile.addEventListener("pointerdown", () => highlightMoves(i, j));
 
         boardElement.append(tile);
-        tile.append(image);
+        tile.append(img);
     }
 }
 
@@ -60,7 +61,7 @@ const pieceValues = {
     king:   5,
 };
 
-const pieceImages = Object.keys(pieceValues).map((x) => "assets/images/" + x + ".svg");
+const pieceImages = Object.keys(pieceValues).map((x) => `assets/images/${x}.svg`);
 
 const regularPieces = [pieceValues.pawn, pieceValues.rook, pieceValues.knight, pieceValues.bishop, pieceValues.queen];
 const initialPiece = pieceValues.king;
@@ -77,7 +78,7 @@ placeInitialPiece();
 
 function highlightMoves(i, j) {
     for (let k = 0; k < width * height; k++)
-        tileElements[k].classList.remove("filled");
+        tileElements[k].classList.remove("selected");
 
     let value = getTile(i, j);
 
@@ -85,7 +86,7 @@ function highlightMoves(i, j) {
         let moves = pieceMoves[value](i, j);
 
         for (const move of moves)
-            tileElements[move[0] * width + move[1]].classList.add("filled");
+            tileElements[move[0] * width + move[1]].classList.add("selected");
     }
 }
 
@@ -113,11 +114,15 @@ function setTile(i, j, value) {
 
     board[index] = value;
 
-    if (value === null)
+    if (value === null) {
+        tileElements[index].firstChild.style.display = "none";
         tileElements[index].firstChild.src = "";
+    }
 
-    else
+    else {
+        tileElements[index].firstChild.style.display = "";
         tileElements[index].firstChild.src = pieceImages[value];
+    }
 }
 
 // set the value of all tiles on the board

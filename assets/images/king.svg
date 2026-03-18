@@ -1,3 +1,26 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
-    <text y="1em" fill="darkcyan">K</text>
+<!-- convert -density 2048 -resize 150x150 -background white -bordercolor white -border 15x15 king.svg king.png -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <g fill="#6ac" stroke="#fed" stroke-width="0">
+        <circle cx="32" cy="18" r="6" />
+        <path d="M 10 64
+            l -2 -8
+            q 24 -8 48 0
+            l -2 8
+            z"
+        />
+        <path d="M 7 52
+            q 9 -3 23 -4
+            v -8
+            q 0 -10 -6 -15
+            t -17 -5
+            t 0 32"
+        />
+        <path d="M 57 52
+            q -9 -3 -23 -4
+            v -8
+            q 0 -10 6 -15
+            t 17 -5
+            t 0 32"
+        />
+    </g>
 </svg>
