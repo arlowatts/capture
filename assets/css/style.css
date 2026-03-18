@@ -1,0 +1,181 @@
+:root {
+    --white:      #fed;
+    --white-filled: #fbb;
+    --black:      #321;
+    --black-filled: #633;
+    --background: var(--white);
+    --text:       var(--black);
+    --border:     var(--black);
+}
+
+html {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    font: bold 22px "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif";
+
+    background-color: var(--background);
+    color: var(--text);
+
+    display: flex;
+    flex-direction: column;
+
+    width: min(100%, 600px);
+    height: 100%;
+    margin: 0;
+
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/*header .link {
+    font-size: 15px;
+    color: var(--border);
+    text-decoration: underline;
+
+    display: inline-block;
+    margin: 0.25em 1em;
+    cursor: pointer;
+}*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    flex-grow: 1;
+
+    & .board {
+        width: 100%;
+        padding-bottom: 100%;
+
+        position: relative;
+
+        border: 0.1em solid var(--border);
+        box-sizing: border-box;
+
+        & .tile {
+            position: absolute;
+
+            border: 0.1em solid var(--border);
+            box-sizing: border-box;
+
+            &.white {
+                background-color: var(--white);
+
+                &.filled {
+                    background-color: var(--white-filled);
+                }
+            }
+
+            &.black {
+                background-color: var(--black);
+
+                &.filled {
+                    background-color: var(--black-filled);
+                }
+            }
+        }
+    }
+
+    /*& textarea {
+        font: inherit;
+        font-weight: initial;
+        text-transform: uppercase;
+
+        background-color: inherit;
+        color: inherit;
+
+        width: calc(100% - 1em);
+        padding: 0.5em;
+    }*/
+
+    /*& .title {
+        margin: 0em 1em;
+    }*/
+
+    /*& .word {
+        display: inline-flex;
+        vertical-align: top;
+
+        max-width: calc(100% - (2 * 0.65em));
+        margin: 0.05em 0.65em;
+    }*/
+
+    /*& .border {
+        border: 0.1em solid var(--border);
+        border-radius: 0.25em;
+        box-sizing: border-box;
+
+        &.button {
+            cursor: pointer;
+            width: 50%;
+            margin: 0 25%;
+        }
+
+        &.indicator {
+            display: inline-block;
+
+            width: 0.5em;
+            height: 0.5em;
+            margin: 0 0.25em;
+        }
+
+        &.tile {
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+
+            &.letter {
+                width: 1.2em;
+                height: 1.5em;
+                line-height: 1.3em;
+                margin: 0 0.05em;
+            }
+
+            &.key {
+                width: 10%;
+                height: 2.5em;
+                line-height: 2.3em;
+
+                &.pressed {
+                    background-color: var(--border);
+                }
+
+                &.large {
+                    width: 15%;
+                }
+
+                &.x-large {
+                    width: 100%;
+                }
+            }
+        }
+
+        &.locked {
+            color: var(--border);
+            cursor: default;
+        }
+
+        &.filled {
+            border-color: var(--fill);
+            background-color: var(--fill);
+            cursor: default;
+        }
+    }*/
+}
+
+/*.blank {
+    visibility: hidden;
+}*/
+
+/*.hidden {
+    display: none !important;
+}*/
